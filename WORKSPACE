@@ -29,9 +29,9 @@ bazel_skylib_workspace()
 
 load("//build:copts.bzl", "BASE_CLANG_COPTS", "EXTRA_COPTS")
 
-BAZEL_TOOLCHAIN_REF = "056aeaa01900f5050a9fed9b11e2d365a684831a"
+BAZEL_TOOLCHAIN_REF = "214fc1cc5d9010fafeaa16a67059caefb1c338aa"
 
-BAZEL_TOOLCHAIN_SHA = "93aa940bcaa2bfdd8153d4d029bad1ccc6c0601e29ffff3a23e1d89aba5f61fa"
+BAZEL_TOOLCHAIN_SHA = "f5141e265a79b9c69aaf30ed1157080599ce32918dff0f0ef69366078c7c455f"
 
 http_archive(
     name = "com_grail_bazel_toolchain",
@@ -73,7 +73,10 @@ llvm_toolchain(
     cxx_standard = {
         "": "c++14",
     },
-    llvm_version = "14.0.0",
+    llvm_versions = {
+        "": "14.0.0",
+        "darwin-aarch64": "14.0.6",
+    },
     target_settings = {
         "": ["@//build:clang14_requested"],
     },
